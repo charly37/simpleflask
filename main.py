@@ -1,4 +1,8 @@
+import os
+import sys
+
 from flask import Flask
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -7,4 +11,8 @@ def hello_world():
 
 if __name__ == "__main__":
     #run the reactor
-    app.run(host='0.0.0.0',port=8080)
+    aPort = os.getenv("PORT")
+    if not aPort:
+        print("PORT is not defined")
+        sys.exit(1)
+    app.run(host='0.0.0.0',port=aPort)
