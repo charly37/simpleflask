@@ -12,3 +12,7 @@ PS C:\Code\SimpleFlask> docker run -p 8077:8080 simpleflask
 
 Then you should be able to curl on port 8077 and get a "hello world" answer
 
+# build
+PS C:\Code\SimpleFlask> docker build -t simpleflask .
+PS C:\Code\SimpleFlask> docker tag 0fb359f3cfbe charly37/simpleflask:1
+PS C:\Code\SimpleFlask> docker push charly37/simpleflask:1
