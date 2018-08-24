@@ -23,6 +23,15 @@ RUN python3.6 -m pip install jsonpickle requests
 #Test YAML
 RUN python3.6 -m pip install pyyaml
 
+################################################################
+#install gcloud
+RUN yum -y install curl which
+RUN curl -sSL https://sdk.cloud.google.com | bash
+ENV PATH $PATH:/root/google-cloud-sdk/bin
+#install kube
+RUN gcloud components install kubectl --quiet
+################################################################
+
 ADD main.py /code/main.py
 
 EXPOSE 8077

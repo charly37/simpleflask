@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: simpleflask2svc
+spec:
+  selector:
+    name: simpleflask2
+  type: NodePort
+  ports:
+  - protocol: TCP
+    port: 8002
+    targetPort: 8002
+    nodePort: 30157

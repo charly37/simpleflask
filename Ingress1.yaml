@@ -1,0 +1,17 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    ingress.kubernetes.io/rewrite-target: "/"
+    kubernetes.io/ingress.class: nginx
+  name: simpleflask1ingress
+spec:
+  rules:
+  - host: svc1.djynet.xyz
+    http:
+      paths:
+      - backend:
+          serviceName: simpleflask1svc
+          servicePort: 8001
+        path: "/"
